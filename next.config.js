@@ -4,6 +4,7 @@
 const nextConfig = {
   trailingSlash: true,
   //distDir: 'next-in-browser-markdown-editor',
+  images: { unoptimized: true },
   reactStrictMode: true,
   output: 'export',
 };

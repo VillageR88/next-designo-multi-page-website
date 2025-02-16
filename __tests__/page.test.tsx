@@ -26,4 +26,27 @@ describe('Page', () => {
 
     expect(mainElement).toBeInTheDocument();
   });
+
+  it('renders image elements with alt attributes if any', () => {
+    render(<Page />);
+
+    const images = screen.queryAllByRole('img');
+    if (images.length > 0) {
+      for (const img of images) {
+        expect(img).toHaveAttribute('alt');
+      }
+    }
+  });
+
+  it('renders anchor elements with non-empty href attributes if any', () => {
+    render(<Page />);
+
+    const anchors = screen.queryAllByRole('link');
+    if (anchors.length > 0) {
+      for (const anchor of anchors) {
+        expect(anchor).toHaveAttribute('href');
+        expect(anchor.getAttribute('href')).not.toBe('');
+      }
+    }
+  });
 });

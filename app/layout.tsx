@@ -1,17 +1,14 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Fira_Code, Inconsolata } from 'next/font/google';
+import { Jost } from 'next/font/google';
+import Image from 'next/image';
+import logoLight from '../public/assets/shared/desktop/logo-light.png';
+import logoDark from '../public/assets/shared/desktop/logo-dark.png';
 
-const firaCode = Fira_Code({
+const jost = Jost({
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-fira-code',
-  subsets: ['latin', 'latin-ext'],
-});
-const inconsolata = Inconsolata({
-  display: 'swap',
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-inconsolata',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900', '900'],
+  variable: '--font-jost',
   subsets: ['latin', 'latin-ext'],
 });
 
@@ -30,7 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta property="og:image" content={undefined} />
       </head>
-      <body className={`${firaCode.variable} ${inconsolata.variable} flex min-h-dvh flex-col overflow-x-clip`}>
+
+      <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip font-jost`}>
+        <nav className="mt-[64px]">
+          <div className="mx-auto w-full max-w-[90em]">
+            <Image className="h-[24px] w-[196px]" alt="logo" width={196} height={24} src={logoDark} />
+          </div>
+        </nav>
         {children}
       </body>
     </html>

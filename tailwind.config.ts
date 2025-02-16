@@ -12,9 +12,9 @@ const config: Config = {
         screen1024: '1024px',
       },
       fontFamily: {
-        firaCode: ['Fira Code', 'serif'],
-        inconsolata: ['Inconsolata', 'serif'],
+        jost: ['var(--font-jost)'],
       },
+
       colors: {},
     },
   },
