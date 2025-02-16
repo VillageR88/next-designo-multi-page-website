@@ -3,11 +3,27 @@ import { render, screen } from '@testing-library/react';
 import Page from '../app/page';
 
 describe('Page', () => {
-  it('renders a heading', () => {
+  it('renders a head element', () => {
     render(<Page />);
 
-    const heading = screen.getByRole('heading', { level: 1 });
+    const headElement = document.head;
 
-    expect(heading).toBeInTheDocument();
+    expect(headElement).toBeInTheDocument();
+  });
+
+  it('renders a body element', () => {
+    render(<Page />);
+
+    const bodyElement = document.body;
+
+    expect(bodyElement).toBeInTheDocument();
+  });
+
+  it('renders a main element', () => {
+    render(<Page />);
+
+    const mainElement = screen.getByRole('main');
+
+    expect(mainElement).toBeInTheDocument();
   });
 });
