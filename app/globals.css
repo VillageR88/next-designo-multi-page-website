@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(13, 8, 45);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f57463;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 69, 58);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(255, 69, 58);
+}
+
+::-webkit-scrollbar-thumb:hover:not(:active) {
+  background: rgb(255, 99, 71);
+}
+@-moz-document url-prefix() {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #f57463 rgb(13, 8, 45);
+  }
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(13, 8, 45);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #f57463;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 69, 58);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgb(255, 69, 58);
+}
+
+*::-webkit-scrollbar-thumb:hover:not(:active) {
+  background: rgb(255, 99, 71);
+}
+::placeholder {
+  color: #d1d0d5;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+}
+
+input::-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px rgb(23, 18, 55) inset;
+  -webkit-text-fill-color: white;
+  font-weight: bold;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::before {
+  background-color: rgb(13, 8, 45);
+  content: '';
+  display: block;
+  font-weight: bold;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+}
+
+input::after {
+  background-color: rgb(13, 8, 45);
+  content: '';
+  display: block;
+  font-weight: bold;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+}
+
+input:not([type='file']) {
+  backdrop-filter: blur(2.5px);
+}
+
+div:has(input[type='file']) {
+  backdrop-filter: blur(2.5px);
+}
