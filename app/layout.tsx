@@ -1,8 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Fira_Code, Inconsolata } from 'next/font/google';
-import Image from 'next/image';
-import logoMark from '../public/assets/images/logo-mark.svg';
 
 const firaCode = Fira_Code({
   display: 'swap',
