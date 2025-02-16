@@ -38,14 +38,18 @@ describe('Page', () => {
     }
   });
 
-  it('renders anchor elements with non-empty href attributes if any', () => {
+  it('renders anchor elements with non-empty href attributes and discernible text or aria-label if any', () => {
     render(<Page />);
 
-    const anchors = screen.queryAllByRole('link');
+    const anchors = document.querySelectorAll('a');
     if (anchors.length > 0) {
-      for (const anchor of anchors) {
+      for (const anchor of Array.from(anchors)) {
         expect(anchor).toHaveAttribute('href');
         expect(anchor.getAttribute('href')).not.toBe('');
+        const hasText = anchor.textContent && anchor.textContent.trim() !== '';
+        const hasAriaLabel =
+          anchor.hasAttribute('aria-label') && (anchor.getAttribute('aria-label')?.trim() ?? '') !== '';
+        expect(hasText ?? hasAriaLabel).toBe(true);
       }
     }
   });
