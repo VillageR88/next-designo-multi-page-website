@@ -4,10 +4,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "manual"
+      interval: "hourly"
     open-pull-requests-limit: 30
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "manual"
+      interval: "hourly"
