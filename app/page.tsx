@@ -1,4 +1,10 @@
+import Image from 'next/image';
+import rightArrowIcon from '../public/assets/shared/desktop/icon-right-arrow.svg';
+import illustrationPassionate from '../public/assets/home/desktop/illustration-passionate.svg';
+import illustrationResourceful from '../public/assets/home/desktop/illustration-resourceful.svg';
+import illustrationFriendly from '../public/assets/home/desktop/illustration-friendly.svg';
 import Link from 'next/link';
+
 export default function Home(): JSX.Element {
   return (
     <>
@@ -40,22 +46,48 @@ export default function Home(): JSX.Element {
               background: 'bg-[url(../public/assets/home/desktop/image-graphic-design.jpg)]',
             },
           ].map((item) => (
-            <div
+            <a
+              href={item.title.toLowerCase().split(' ').join('-')}
               key={item.title}
-              className={`flex items-center justify-center rounded-[15px] ${item.background} ${item.area}`}
+              className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
             >
               <section className="flex flex-col items-center gap-[24px]">
                 <h2 className="text-[40px] font-medium leading-[48px] tracking-[2px] text-white">{item.title}</h2>
-                <a
-                  className="text-[15px] font-medium tracking-[5px] text-white"
-                  href={item.title.toLowerCase().split(' ').join('-')}
-                >
-                  VIEW PROJECTS
-                </a>
+                <div className="flex items-center gap-[21px]">
+                  <p className="text-[15px] font-medium tracking-[5px] text-white">VIEW PROJECTS</p>
+                  <Image className="opacity-100" alt="right arrow icon" src={rightArrowIcon as string} />
+                </div>
               </section>
-              c
-            </div>
+            </a>
           ))}
+        </div>
+        {/* this first div will be for background container */}
+        <div>
+          <ul className="mx-auto flex min-h-[412px] w-full max-w-[69.375em] justify-between">
+            {[
+              {
+                image: illustrationPassionate as string,
+                title: 'passionate',
+              },
+              {
+                image: illustrationResourceful as string,
+                title: 'resourceful',
+              },
+              {
+                image: illustrationFriendly as string,
+                title: 'friendly',
+              },
+            ].map((item) => (
+              <li key={item.title} className="flex flex-col">
+                <div className="relative size-[202px]">
+                  <div className="inset-0 rounded-full bg-gradient-to-r from-[rgba(93,2,2,calc(0.5*0.2))] to-[rgba(93,2,2,0)]">
+                    {' '}
+                    <Image alt={item.title} src={item.image} />
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </main>
     </>
