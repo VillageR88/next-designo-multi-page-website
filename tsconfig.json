@@ -34,6 +34,7 @@
   },
   "include": [
     ".eslintrc.cjs",
+    "postcss.config.js",
     "jest.config.ts",
     "next-env.d.ts",
     "next.config.d.ts",

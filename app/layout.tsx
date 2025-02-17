@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Jost } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import logoLight from '../public/assets/shared/desktop/logo-light.png';
+// import logoLight from '../public/assets/shared/desktop/logo-light.png';
 import logoDark from '../public/assets/shared/desktop/logo-dark.png';
 
 const jost = Jost({
@@ -13,9 +13,9 @@ const jost = Jost({
   subsets: ['latin', 'latin-ext'],
 });
 export const metadata: Metadata = {
-  title: 'Conference Ticket Generator',
-  description: 'Conference Ticket Generator',
-  applicationName: 'Conference Ticket Generator',
+  title: 'Designo multi-page website',
+  description: 'Designo multi-page website',
+  applicationName: 'Designo multi-page website',
 } as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
