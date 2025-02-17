@@ -11,3 +11,7 @@
     transform: translateX(100%) scale(1.5);
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

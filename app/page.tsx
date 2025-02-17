@@ -63,7 +63,7 @@ export default function Home(): JSX.Element {
           ))}
         </div>
         {/* this first div will be for background container */}
-        <div className="relative">
+        <div className="relative min-h-[718px]">
           <Image
             alt=""
             role="presentation"
