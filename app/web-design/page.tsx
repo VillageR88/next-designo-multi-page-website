@@ -1,7 +1,8 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import Image from 'next/image';
-import { galleryItems } from '../_lib/const';
+import Link from 'next/link';
+import { galleryItems, designRoutes } from '../_lib/const';
 
 export default function Home(): JSX.Element {
   const dirnameParts = __dirname.split('app\\');
@@ -11,7 +12,7 @@ export default function Home(): JSX.Element {
   const pageFiles = fs.readdirSync(routePath).filter((file) => file.match('image*'));
 
   return (
-    <main className="mt-[64px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
+    <main className="mb-[160px] mt-[64px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
       <div className="mx-auto flex min-h-[252px] w-full max-w-[69.375em] items-center justify-center rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/web-design/desktop/bg-pattern-intro-web.svg)_#E7816B] [padding:64px_191px]">
         <section className="flex max-w-[400px] flex-col items-center justify-center gap-[24px] text-center">
           <h1 className="text-[48px] font-medium leading-[48px] text-white">Web Design</h1>
@@ -26,7 +27,6 @@ export default function Home(): JSX.Element {
           const key = item.match(/(?<=image-).+(?=.jpg)/)?.[0];
           if (!key) return;
           const description = galleryItems[key];
-
           return (
             <li key={key} className="flex flex-col rounded-[15px]">
               <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
@@ -42,7 +42,23 @@ export default function Home(): JSX.Element {
           );
         })}
       </ul>
-      <div className="mx-auto w-full max-w-[69.375em]">content</div>
+      <ul className="mx-auto flex w-full max-w-[69.375em] justify-between">
+        {Object.keys(designRoutes)
+          .filter((item) => item !== relativeDirname)
+          .map((item) => (
+            <li className="min-h-[308px] w-full max-w-[541px] rounded-[15px]" key={item}>
+              <Link href={designRoutes[item].href}>
+                <Image
+                  width={designRoutes[item].img.width}
+                  height={designRoutes[item].img.height}
+                  alt={item}
+                  className="absolute rounded-[15px]"
+                  src={designRoutes[item].img.src}
+                />
+              </Link>
+            </li>
+          ))}
+      </ul>
     </main>
   );
 }
