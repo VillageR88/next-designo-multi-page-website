@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
           },
         ].map((item) => (
           <a
-            href={item.title.toLowerCase().split(' ').join('-')}
+            href={'design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
             key={item.title}
             className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
           >

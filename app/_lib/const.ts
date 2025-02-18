@@ -4,9 +4,9 @@ import webDesign from '../../public/assets/home/desktop/image-web-design-small.j
 import graphicDesign from '../../public/assets/home/desktop/image-graphic-design.jpg';
 
 const navItems = [
-  { title: 'OUR COMPANY', href: '../about/' },
-  { title: 'LOCATIONS', href: '../locations/' },
-  { title: 'CONTACT', href: '../contact/' },
+  { title: 'OUR COMPANY', href: 'about/' },
+  { title: 'LOCATIONS', href: 'locations/' },
+  { title: 'CONTACT', href: 'contact/' },
 ];
 
 const galleryItems: Record<string, string> = {
