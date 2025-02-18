@@ -1,4 +1,15 @@
+import path from 'node:path';
+import fs from 'node:fs';
+import Image from 'next/image';
+import { galleryItems } from '../_lib/const';
+
 export default function Home(): JSX.Element {
+  const dirnameParts = __dirname.split('app\\');
+  const relativeDirname = dirnameParts[dirnameParts.length - 1];
+  const routePath = path.join(process.cwd(), 'public', 'assets', relativeDirname, 'desktop');
+
+  const pageFiles = fs.readdirSync(routePath).filter((file) => file.match('image*'));
+
   return (
     <main className="mt-[64px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
       <div className="mx-auto flex min-h-[252px] w-full max-w-[69.375em] items-center justify-center rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/web-design/desktop/bg-pattern-intro-web.svg)_#E7816B] [padding:64px_191px]">
@@ -9,7 +20,29 @@ export default function Home(): JSX.Element {
           </p>
         </section>
       </div>
-      <div className="mx-auto min-h-[478px] w-full max-w-[69.375em]">sc</div>
+      <ul className="mx-auto grid min-h-[478px] w-full max-w-[69.375em] grid-cols-3 gap-[32px_30px]">
+        {pageFiles.map((item) => {
+          const imagePath = path.join('/assets', relativeDirname, 'desktop', item);
+          const key = item.match(/(?<=image-).+(?=.jpg)/)?.[0];
+          if (!key) return;
+          const description = galleryItems[key];
+
+          return (
+            <li key={key} className="flex flex-col rounded-[15px]">
+              <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
+              <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] bg-[#FDF3F0] p-[32px]">
+                <section className="flex flex-col items-center justify-center gap-[16px] text-center">
+                  <h2 className="text-[20px] font-medium leading-[26px] tracking-[5px] text-[#E7816B]">
+                    {key.toUpperCase()}
+                  </h2>
+                  <p className="leading-[26px] text-[#333136]">{description}</p>
+                </section>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="mx-auto w-full max-w-[69.375em]">content</div>
     </main>
   );
 }

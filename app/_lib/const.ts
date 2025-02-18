@@ -4,4 +4,8 @@ const navItems = [
   { title: 'CONTACT', href: '../contact/' },
 ];
 
-export { navItems };
+const galleryItems: Record<string, string> = {
+  express: 'A multi-carrier shipping website for ecommerce businesses',
+};
+
+export { navItems, galleryItems };
