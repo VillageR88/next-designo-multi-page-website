@@ -22,7 +22,7 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
         const description = galleryItems[key];
         return (
           <li key={key} className="flex flex-col rounded-[15px]">
-            <Link className="[transition:transform_300ms] hover:scale-110" href="#">
+            <Link className="[transition:transform_600ms] hover:scale-110" href="#">
               <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
               <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] bg-[#FDF3F0] p-[32px]">
                 <section className="flex flex-col items-center justify-center gap-[16px] text-center">
