@@ -4,7 +4,6 @@ import { Jost } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import logoLight from '../public/assets/shared/desktop/logo-light.png';
-
 import logoDark from '../public/assets/shared/desktop/logo-dark.png';
 import { navItems } from './_lib/const';
 
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <meta property="og:image" content={undefined} />
       </head>
 
-      <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip font-jost`}>
+      <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip bg-white font-jost`}>
         <nav className="mt-[64px]">
           <div className="mx-auto flex w-full max-w-[69.375em] items-center justify-between">
             <Link aria-label="logo" href="../">
@@ -51,6 +50,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         </nav>
         {children}
         <footer className="mt-auto">
+          <div className="relative w-full">
+            <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] items-center justify-between rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] [padding:72px_96px_46px_95px]">
+              <section className="flex max-w-[459px] flex-col gap-[22px]">
+                <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
+                  Let’s talk about your project
+                </h2>
+                <p className="leading-[26px] text-white">
+                  Ready to take it to the next level? Contact us today and find out how our expertise can help your
+                  business grow.
+                </p>
+              </section>
+              <Link
+                className="flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#FFFFFF] font-medium tracking-[1px] text-[#333136]"
+                href="../contact/"
+              >
+                GET IN TOUCH
+              </Link>
+            </div>
+            <div className="absolute bottom-0 left-0 z-[-1] min-h-[72px] w-full bg-[#1D1C1E]" />
+          </div>
           <div className="relative min-h-[321px] bg-[#1D1C1E] py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
               <div className="flex w-full items-center justify-between">
