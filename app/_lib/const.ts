@@ -16,6 +16,14 @@ const galleryItems: Record<string, string> = {
   builder: 'Connects users with local contractors based on their location',
   blogr: 'Blogr is a platform for creating an online blog or publication',
   camp: 'Get expert training in coding, data, design, and digital marketing',
+  airfilter: 'Solving the problem of poor indoor air quality by filtering the air',
+  eyecam: 'Product that lets you edit your favorite photos and videos at any time',
+  faceit: 'Get to meet your favorite internet superstar with the faceit app',
+  todo: 'A todo app that features cloud sync with light and dark mode',
+  loopstudios: 'A VR experience app made for Loopstudios',
+  change: 'A book cover designed for Tim Brown’s new release, ‘Change’',
+  'boxed-water': 'A simple packaging concept made for Boxed Water',
+  science: 'A poster made in collaboration with the Federal Art Project',
 };
 
 const designRoutes: Record<string, { href: string; img: StaticImageData }> = {

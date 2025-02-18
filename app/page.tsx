@@ -46,7 +46,7 @@ export default function Home(): JSX.Element {
             background: 'bg-[url(../public/assets/home/desktop/image-graphic-design.jpg)]',
           },
         ].map((item) => (
-          <a
+          <Link
             href={'design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
             key={item.title}
             className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
@@ -58,7 +58,7 @@ export default function Home(): JSX.Element {
                 <Image className="opacity-100" alt="right arrow icon" src={rightArrowIcon as string} />
               </div>
             </section>
-          </a>
+          </Link>
         ))}
       </div>
       {/* this first div will be for background container */}

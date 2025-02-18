@@ -38,13 +38,13 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
       {Object.keys(designRoutes)
         .filter((item) => item !== relativeDirname)
         .map((item) => (
-          <li className="min-h-[308px] w-full max-w-[541px] rounded-[15px]" key={item}>
+          <li className="min-h-[308px] w-full max-w-[541px] rounded-[15px] bg-black" key={item}>
             <Link href={designRoutes[item].href}>
               <Image
                 width={designRoutes[item].img.width}
                 height={designRoutes[item].img.height}
                 alt={item}
-                className="absolute rounded-[15px]"
+                className="absolute rounded-[15px] opacity-50"
                 src={designRoutes[item].img.src}
               />
             </Link>
