@@ -2,6 +2,7 @@ import path from 'node:path';
 import { galleryItems, designRoutes } from '@/app/_lib/const';
 import Link from 'next/link';
 import Image from 'next/image';
+import SectionDesign from '@/components/SectionDesign';
 
 const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; relativeDirname: string }): JSX.Element => (
   <main className="mb-[160px] mt-[64px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
@@ -21,15 +22,17 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
         const description = galleryItems[key];
         return (
           <li key={key} className="flex flex-col rounded-[15px]">
-            <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
-            <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] bg-[#FDF3F0] p-[32px]">
-              <section className="flex flex-col items-center justify-center gap-[16px] text-center">
-                <h2 className="text-[20px] font-medium leading-[26px] tracking-[5px] text-[#E7816B]">
-                  {key.toUpperCase()}
-                </h2>
-                <p className="leading-[26px] text-[#333136]">{description}</p>
-              </section>
-            </div>
+            <Link className="[transition:transform_300ms] hover:scale-110" href="#">
+              <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
+              <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] bg-[#FDF3F0] p-[32px]">
+                <section className="flex flex-col items-center justify-center gap-[16px] text-center">
+                  <h2 className="text-[20px] font-medium leading-[26px] tracking-[5px] text-[#E7816B]">
+                    {key.toUpperCase()}
+                  </h2>
+                  <p className="leading-[26px] text-[#333136]">{description}</p>
+                </section>
+              </div>
+            </Link>
           </li>
         );
       })}
@@ -38,15 +41,21 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
       {Object.keys(designRoutes)
         .filter((item) => item !== relativeDirname)
         .map((item) => (
-          <li className="min-h-[308px] w-full max-w-[541px] rounded-[15px] bg-black" key={item}>
-            <Link href={designRoutes[item].href}>
+          <li className="min-h-[308px] w-full max-w-[541px] overflow-hidden rounded-[15px] bg-black" key={item}>
+            <Link
+              className="relative [&:hover_>_img:nth-of-type(1)]:[scale:120%] [&:hover_div_>_img:nth-of-type(1)]:[animation:_ping2_2s_infinite]"
+              href={designRoutes[item].href}
+            >
               <Image
                 width={designRoutes[item].img.width}
                 height={designRoutes[item].img.height}
                 alt={item}
-                className="absolute rounded-[15px] opacity-50"
+                className="rounded-[15px] opacity-50 [transition:scale_600ms]"
                 src={designRoutes[item].img.src}
               />
+              <div className="absolute top-0 flex size-full items-center justify-center">
+                <SectionDesign item={item.replace('-', ' ').toUpperCase()} />
+              </div>
             </Link>
           </li>
         ))}

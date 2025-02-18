@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import rightArrowIcon from '../public/assets/shared/desktop/icon-right-arrow.svg';
+import SectionDesign from '@/components/SectionDesign';
 import illustrationPassionate from '../public/assets/home/desktop/illustration-passionate.svg';
 import illustrationResourceful from '../public/assets/home/desktop/illustration-resourceful.svg';
 import illustrationFriendly from '../public/assets/home/desktop/illustration-friendly.svg';
@@ -51,13 +51,7 @@ export default function Home(): JSX.Element {
             key={item.title}
             className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
           >
-            <section className="flex flex-col items-center gap-[24px]">
-              <h2 className="text-[40px] font-medium leading-[48px] tracking-[2px] text-white">{item.title}</h2>
-              <div className="flex items-center gap-[21px]">
-                <p className="text-[15px] font-medium tracking-[5px] text-white">VIEW PROJECTS</p>
-                <Image className="opacity-100" alt="right arrow icon" src={rightArrowIcon as string} />
-              </div>
-            </section>
+            <SectionDesign item={item.title} />
           </Link>
         ))}
       </div>
