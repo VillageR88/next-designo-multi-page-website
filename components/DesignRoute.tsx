@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { galleryItems, designRoutes } from '@/app/_lib/const';
+import { galleryItems, designRouteItems } from '@/app/_lib/const';
 import Link from 'next/link';
 import Image from 'next/image';
 import SectionDesign from '@/components/SectionDesign';
@@ -8,10 +8,8 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
   <main className="mb-[160px] mt-[64px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
     <div className="mx-auto flex min-h-[252px] w-full max-w-[69.375em] items-center justify-center rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/web-design/desktop/bg-pattern-intro-web.svg)_#E7816B] [padding:64px_191px]">
       <section className="flex max-w-[400px] flex-col items-center justify-center gap-[24px] text-center">
-        <h1 className="text-[48px] font-medium leading-[48px] text-white">Web Design</h1>
-        <p className="leading-[26px] text-white">
-          We build websites that serve as powerful marketing tools and bring memorable brand experiences.
-        </p>
+        <h1 className="text-[48px] font-medium leading-[48px] text-white">{designRouteItems[relativeDirname].title}</h1>
+        <p className="leading-[26px] text-white">{designRouteItems[relativeDirname].description}</p>
       </section>
     </div>
     <ul className="mx-auto grid min-h-[478px] w-full max-w-[69.375em] grid-cols-3 gap-[32px_30px]">
@@ -38,20 +36,20 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
       })}
     </ul>
     <ul className="mx-auto flex w-full max-w-[69.375em] justify-between">
-      {Object.keys(designRoutes)
+      {Object.keys(designRouteItems)
         .filter((item) => item !== relativeDirname)
         .map((item) => (
           <li className="min-h-[308px] w-full max-w-[541px] overflow-hidden rounded-[15px] bg-black" key={item}>
             <Link
               className="relative [&:hover_>_img:nth-of-type(1)]:[scale:120%] [&:hover_div_>_img:nth-of-type(1)]:[animation:_ping2_2s_infinite]"
-              href={designRoutes[item].href}
+              href={designRouteItems[item].href}
             >
               <Image
-                width={designRoutes[item].img.width}
-                height={designRoutes[item].img.height}
+                width={designRouteItems[item].img.width}
+                height={designRouteItems[item].img.height}
                 alt={item}
                 className="rounded-[15px] opacity-50 [transition:scale_600ms]"
-                src={designRoutes[item].img.src}
+                src={designRouteItems[item].img.src}
               />
               <div className="absolute top-0 flex size-full items-center justify-center">
                 <SectionDesign item={item.replace('-', ' ').toUpperCase()} />

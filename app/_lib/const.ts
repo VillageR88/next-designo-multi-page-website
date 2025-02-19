@@ -26,10 +26,25 @@ const galleryItems: Record<string, string> = {
   science: 'A poster made in collaboration with the Federal Art Project',
 };
 
-const designRoutes: Record<string, { href: string; img: StaticImageData }> = {
-  'app-design': { href: '/design/app-design/', img: appDesign },
-  'web-design': { href: '/design/web-design/', img: webDesign },
-  'graphic-design': { href: '/design/graphic-design/', img: graphicDesign },
+const designRouteItems: Record<string, { title: string; description: string; href: string; img: StaticImageData }> = {
+  'app-design': {
+    title: 'App Design',
+    description: 'Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.',
+    href: '/design/app-design/',
+    img: appDesign,
+  },
+  'web-design': {
+    title: 'Web Design',
+    description: 'We build websites that serve as powerful marketing tools and bring memorable brand experiences.',
+    href: '/design/web-design/',
+    img: webDesign,
+  },
+  'graphic-design': {
+    title: 'Graphic Design',
+    description: 'We deliver eye-catching branding materials that are tailored to meet your business objectives.',
+    href: '/design/graphic-design/',
+    img: graphicDesign,
+  },
 };
 
-export { navItems, galleryItems, designRoutes };
+export { navItems, galleryItems, designRouteItems };
