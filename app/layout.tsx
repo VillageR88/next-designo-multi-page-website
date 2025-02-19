@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         </nav>
         {children}
         <footer className="mt-auto">
-          <div className="relative w-full">
+          <div id="footer-extension" className="relative w-full">
             <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] items-center justify-between rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] [padding:72px_96px_46px_95px]">
               <section className="flex max-w-[459px] flex-col gap-[22px]">
                 <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">

@@ -16,4 +16,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar styles */
+body:has(form) #footer-extension {
+  display: none;
+}
