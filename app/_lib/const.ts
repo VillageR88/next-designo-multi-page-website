@@ -4,9 +4,9 @@ import webDesign from '../../public/assets/home/desktop/image-web-design-small.j
 import graphicDesign from '../../public/assets/home/desktop/image-graphic-design.jpg';
 
 const navItems = [
-  { title: 'OUR COMPANY', href: 'about/' },
-  { title: 'LOCATIONS', href: 'locations/' },
-  { title: 'CONTACT', href: 'contact/' },
+  { title: 'OUR COMPANY', href: '/about/' },
+  { title: 'LOCATIONS', href: '/locations/' },
+  { title: 'CONTACT', href: '/contact/' },
 ];
 
 const galleryItems: Record<string, string> = {
@@ -27,9 +27,9 @@ const galleryItems: Record<string, string> = {
 };
 
 const designRoutes: Record<string, { href: string; img: StaticImageData }> = {
-  'app-design': { href: '../app-design/', img: appDesign },
-  'web-design': { href: '../web-design/', img: webDesign },
-  'graphic-design': { href: '../graphic-design/', img: graphicDesign },
+  'app-design': { href: '/design/app-design/', img: appDesign },
+  'web-design': { href: '/design/web-design/', img: webDesign },
+  'graphic-design': { href: '/design/graphic-design/', img: graphicDesign },
 };
 
 export { navItems, galleryItems, designRoutes };

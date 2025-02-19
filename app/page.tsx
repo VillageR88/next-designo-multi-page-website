@@ -22,7 +22,7 @@ export default function Home(): JSX.Element {
           </section>
           <Link
             className="flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-white text-[15px] font-medium tracking-[1px] text-[#333136]"
-            href="about/"
+            href="/about/"
           >
             LEARN MORE
           </Link>
@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
           },
         ].map((item) => (
           <Link
-            href={'design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
+            href={'/design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
             key={item.title}
             className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
           >

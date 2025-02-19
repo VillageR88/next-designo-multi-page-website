@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description: 'Designo multi-page website',
   applicationName: 'Designo multi-page website',
 } as const;
-const relativeLength = __dirname.split('app')[1].split('\\').filter(Boolean).length;
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang="en">
@@ -32,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip bg-white font-jost`}>
         <nav className="mt-[64px]">
           <div className="mx-auto flex w-full max-w-[69.375em] items-center justify-between">
-            <Link aria-label="logo" href={'../'.repeat(relativeLength || 1)}>
+            <Link aria-label="logo" href="/">
               <Image className="h-[24px] w-[196px]" alt="logo" width={196} height={24} src={logoDark} />
             </Link>
             <ul className="flex items-center gap-[42px]">
@@ -40,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                 <Link
                   className="text-[14px] leading-[14px] tracking-[2px] text-[#333136]"
                   key={item.title}
-                  href={'../'.repeat(relativeLength).concat(item.href)}
+                  href={item.href}
                 >
                   {item.title}
                 </Link>
@@ -63,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
               </section>
               <Link
                 className="flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#FFFFFF] font-medium tracking-[1px] text-[#333136]"
-                href={'../'.repeat(relativeLength).concat('contact/')}
+                href="/contact/"
               >
                 GET IN TOUCH
               </Link>
@@ -73,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           <div className="relative min-h-[321px] bg-[#1D1C1E] py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
               <div className="flex w-full items-center justify-between">
-                <Link aria-label="logo" href={'../'.repeat(relativeLength || 1)}>
+                <Link aria-label="logo" href="/">
                   <Image className="h-[24px] w-[196px]" alt="logo" width={196} height={24} src={logoLight} />
                 </Link>
                 <div className="absolute left-0 top-[139px] h-px w-full [border-bottom:1px_solid_rgba(255,255,255,0.1)]" />
@@ -82,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     <Link
                       className="text-[14px] leading-[14px] tracking-[2px] text-white"
                       key={item.title}
-                      href={'../'.repeat(relativeLength).concat(item.href)}
+                      href={item.href}
                     >
                       {item.title}
                     </Link>
@@ -96,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     paragraphs: [
                       {
                         text: '3886 Wellington Street\nToronto, Ontario M9C 3J5',
-                        href: '../'.repeat(relativeLength).concat('location'),
+                        href: '/location/',
                       },
                     ],
                   },
