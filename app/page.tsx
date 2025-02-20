@@ -3,57 +3,77 @@ import SectionDesign from '@/components/SectionDesign';
 import illustrationPassionate from '../public/assets/home/desktop/illustration-passionate.svg';
 import illustrationResourceful from '../public/assets/home/desktop/illustration-resourceful.svg';
 import illustrationFriendly from '../public/assets/home/desktop/illustration-friendly.svg';
+import webDesign from '../public/assets/home/desktop/image-web-design-large.jpg';
+import appDesign from '../public/assets/home/desktop/image-app-design.jpg';
+import graphicDesign from '../public/assets/home/desktop/image-graphic-design.jpg';
+import webDesignTablet from '../public/assets/home/tablet/image-web-design.jpg';
+import appDesignTablet from '../public/assets/home/tablet/image-app-design.jpg';
+import graphicDesignTablet from '../public/assets/home/tablet/image-graphic-design.jpg';
 import Link from 'next/link';
+
+const HERO_TITLE = 'Award-winning custom designs and digital branding solutions';
+const HERO_DESCRIPTION =
+  'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.';
+const LEARN_MORE = 'LEARN MORE';
 
 export default function Home(): JSX.Element {
   return (
     <main className="mb-[-146px] mt-[67px] flex flex-col items-center gap-[160px] px-[39px] [background:no-repeat_calc(50%-12.5em)_320px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg),no-repeat_calc(50%+13.5em)_100%_url(../public/assets/shared/desktop/bg-pattern-leaf180.svg)]">
-      <div className="flex min-h-[640px] w-full max-w-[69.375em] items-center rounded-[15px] pl-[95px] [background-color:#E7816B] [background-image:url(../public/assets/home/desktop/bg-pattern-hero-home.svg),url(../public/assets/home/desktop/image-hero-phone.png)] [background-position:right,calc(100%+5.5em)_-1.8em] [background-repeat:no-repeat] before:[transform:rotate(80deg)]">
-        <div className="flex max-w-[540px] flex-col gap-[40px]">
-          <section className="flex flex-col gap-[39px]">
-            <h1 className="text-[48px] font-medium leading-[48px] text-white">
-              Award-winning custom designs and digital branding solutions
-            </h1>
-            <p className="max-w-[445px] text-[16px] leading-[26px] text-white">
-              With over 10 years in the industry, we are experienced in creating fully responsive websites, app design,
-              and engaging brand experiences. Find out more about our services.
-            </p>
+      <div className="flex min-h-[843px] w-full max-w-[69.375em] justify-center rounded-[15px] pt-[60px] [background-color:#E7816B] [background-image:url(../public/assets/home/desktop/bg-pattern-hero-home.svg),url(../public/assets/home/desktop/image-hero-phone.png)] [background-position:calc(100%+5em)_50%,50%_18em] [background-repeat:no-repeat] before:[transform:rotate(80deg)] screen1024:min-h-[640px] screen1024:items-center screen1024:justify-normal screen1024:pl-[95px] screen1024:pt-0 screen1024:[background-position:right,calc(100%+5.5em)_-1.8em]">
+        <div className="flex max-w-[540px] flex-col items-center gap-[24px] text-center screen1024:items-start screen1024:gap-[40px] screen1024:text-start">
+          <section className="flex flex-col items-center gap-[28px] screen1024:items-start screen1024:gap-[39px]">
+            <h1 className="text-[48px] font-medium leading-[48px] text-white">{HERO_TITLE}</h1>
+            <p className="max-w-[445px] text-[16px] leading-[26px] text-white">{HERO_DESCRIPTION}</p>
           </section>
           <Link className="button1 flex min-h-[56px] w-full max-w-[152px] items-center justify-center" href="/about/">
-            LEARN MORE
+            {LEARN_MORE}
           </Link>
         </div>
       </div>
-      <div className="mx-auto grid min-h-[640px] w-full max-w-[69.375em] grid-cols-2 gap-[24px_30px] [grid-template-areas:'a_b'_'a_c']">
+      <div className="mx-auto flex min-h-fit w-full max-w-[69.375em] grid-cols-2 flex-col gap-[24px] [grid-template-areas:'a_b'_'a_c'] [grid-template-rows:minmax(auto,308px)_minmax(auto,308px)] screen1024:grid screen1024:gap-[24px_30px]">
         {[
           {
             area: '[grid-area:a]',
             title: 'WEB DESIGN',
-            background: 'bg-[url(../public/assets/home/desktop/image-web-design-large.jpg)]',
+            background: webDesign,
+            backgroundTablet: webDesignTablet,
           },
           {
             area: '[grid-area:b]',
             title: 'APP DESIGN',
-            background: 'bg-[url(../public/assets/home/desktop/image-app-design.jpg)]',
+            background: appDesign,
+            backgroundTablet: appDesignTablet,
           },
           {
             area: '[grid-area:c]',
             title: 'GRAPHIC DESIGN',
-            background: 'bg-[url(../public/assets/home/desktop/image-graphic-design.jpg)]',
+            background: graphicDesign,
+            backgroundTablet: graphicDesignTablet,
           },
         ].map((item) => (
           <Link
             href={'/design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
             key={item.title}
-            className={`flex items-center justify-center rounded-[15px] ease-in-out [background-blend-mode:darken] [background-color:rgba(0,0,0,0.5)] [background-position:center] [background-size:100%] [transition:background_600ms] hover:[background-size:120%] ${item.background} ${item.area} [&:hover_img]:[animation:_ping2_2s_infinite]`}
+            className={`relative flex items-center justify-center rounded-[15px] ease-in-out [background-color:rgba(0,0,0,1)] [transition:scale_600ms] ${item.area} z-[1] min-h-[200px] overflow-hidden screen1024:min-h-fit [&:hover>img:nth-of-type(1)]:[scale:120%] [&:hover>section_img:nth-of-type(1)]:[animation:_ping2_3s_infinite]`}
           >
+            <picture>
+              <source media="(max-width: 1024px)" srcSet={item.backgroundTablet.src} />
+              <Image
+                alt=""
+                role="presentation"
+                className="absolute left-0 top-0 z-[-1] flex size-full rounded-[15px] object-cover opacity-50 [transition:scale_600ms]"
+                width={item.background.width}
+                height={item.background.height}
+                src={item.background.src}
+              />
+            </picture>
             <SectionDesign item={item.title} />
           </Link>
         ))}
       </div>
       {/* this first div will be for background container */}
       <div className="relative min-h-[718px] w-full overflow-x-clip">
-        <ul className="mx-auto flex min-h-[412px] w-full max-w-[69.375em] justify-between">
+        <ul className="mx-auto flex min-h-[412px] w-full max-w-[69.375em] justify-between gap-[30px]">
           {[
             {
               image: illustrationPassionate as string,

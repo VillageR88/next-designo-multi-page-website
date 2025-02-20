@@ -60,8 +60,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         {children}
         <footer className="mt-auto">
           <div id="footer-extension" className="relative w-full px-[39px]">
-            <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] items-center justify-between rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] [padding:72px_96px_46px_95px]">
-              <section className="flex max-w-[455px] flex-col gap-[22px]">
+            <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] flex-col items-center justify-between gap-[32px] rounded-[15px] p-[57px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:flex-row screen1024:[padding:72px_96px_46px_95px]">
+              <section className="flex max-w-[455px] flex-col items-center gap-[22px] text-center screen1024:items-start screen1024:text-start">
                 <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
                   {FOOTER_EXTENSION_TITLE}
                 </h2>
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                   ))}
                 </ul>
               </div>
-              <div className="flex [&>_section:nth-of-type(2)]:ml-[226px]">
+              <div className="flex justify-between screen1024:[&>_section:nth-of-type(2)]:ml-[20%]">
                 {[
                   {
                     title: locationItems.canada.address.title,
@@ -134,7 +134,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     ))}
                   </section>
                 ))}
-                <ul className="ml-auto flex items-center gap-[16px] self-end text-white [&_a]:fill-[#E7816B] [&_a]:[transition:fill_300ms] hover:[&_a]:fill-[#FFAD9B]">
+                <ul className="flex items-center gap-[16px] self-end text-white screen1024:ml-auto [&_a]:fill-[#E7816B] [&_a]:[transition:fill_300ms] hover:[&_a]:fill-[#FFAD9B]">
                   <li>
                     <Link aria-label="facebook" href="#">
                       <svg role="presentation" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
