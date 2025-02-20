@@ -32,7 +32,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <nav className="mt-[64px]">
           <div className="mx-auto flex w-full max-w-[69.375em] items-center justify-between">
             <Link aria-label="logo" href="/">
-              <Image className="h-[24px] w-[196px]" alt="logo" width={196} height={24} src={logoDark} />
+              <Image
+                className="h-[24px] w-[196px]"
+                alt="Designo logo"
+                width={logoDark.width}
+                height={logoDark.height}
+                src={logoDark.src}
+              />
             </Link>
             <ul className="flex items-center gap-[42px]">
               {navItems.map((item) => (
@@ -73,18 +79,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
               <div className="flex w-full items-center justify-between">
                 <Link aria-label="logo" href="/">
-                  <Image className="h-[24px] w-[196px]" alt="logo" width={196} height={24} src={logoLight} />
+                  <Image
+                    className="h-[24px] w-[196px]"
+                    alt="Designo logo"
+                    width={logoLight.width}
+                    height={logoLight.height}
+                    src={logoLight.src}
+                  />
                 </Link>
                 <div className="absolute left-0 top-[139px] h-px w-full [border-bottom:1px_solid_rgba(255,255,255,0.1)]" />
                 <ul className="flex items-center gap-[42px]">
                   {navItems.map((item) => (
-                    <Link
-                      className="nav-item bottom text-[14px] leading-[14px] tracking-[2px] text-white"
-                      key={item.title}
-                      href={item.href}
-                    >
-                      {item.title}
-                    </Link>
+                    <li key={item.title}>
+                      <Link
+                        className="nav-item bottom text-[14px] leading-[14px] tracking-[2px] text-white"
+                        href={item.href}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>
