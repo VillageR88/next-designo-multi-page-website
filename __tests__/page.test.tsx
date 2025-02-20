@@ -1,8 +1,14 @@
 import '@testing-library/jest-dom';
+import preloadAll from 'jest-next-dynamic';
 import { render, screen } from '@testing-library/react';
 import fs from 'node:fs';
 import path from 'node:path';
 import Layout from '../app/layout';
+
+// Preload all dynamic imports
+beforeAll(async () => {
+  await preloadAll();
+});
 
 // Utility functions
 function checkAnchorElements(): void {
@@ -34,27 +40,44 @@ function checkImageElements(): void {
 
 // Dynamically import all page components
 const appDirectory = path.join(__dirname, '../app');
-const pageFiles = fs.readdirSync(appDirectory).filter((file) => file.match('page.tsx'));
+const pageFiles = fs
+  .readdirSync(appDirectory, { recursive: true, withFileTypes: true })
+  .filter((file) => file.isFile() && file.name.includes('page.tsx'))
+  .map((file) => path.resolve(appDirectory, file.parentPath, file.name)); // Ensure the correct path is used
+console.log('pageFiles', pageFiles);
+
+const PageComponentCollection: Record<string, React.FC> = {};
+
+// Load all components before tests
+beforeAll(async () => {
+  const imports = pageFiles.map(async (file) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const importedModule = await import(file);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    PageComponentCollection[file] = importedModule.default;
+  });
+
+  await Promise.all(imports); // Ensure all imports complete before tests run
+});
 
 // Test each page component
-for (const file of pageFiles) {
-  describe(file, () => {
-    let PageComponent: () => JSX.Element;
+// biome-ignore lint/complexity/noForEach: <explanation>
+pageFiles.forEach((file) => {
+  console.log('file', file);
+  describe(`Testing page: ${file}`, () => {
+    let PageComponent: React.FC;
 
-    beforeAll(async () => {
-      const importedModule = (await import(path.join(appDirectory, file))) as { default: () => JSX.Element };
-      PageComponent = importedModule.default;
+    beforeAll(() => {
+      PageComponent = PageComponentCollection[file];
     });
+
     it('renders a head element', () => {
       render(
         <Layout>
           <PageComponent />
         </Layout>,
       );
-
-      const headElement = document.head;
-
-      expect(headElement).toBeInTheDocument();
+      expect(document.head).toBeInTheDocument();
     });
 
     it('renders a body element', () => {
@@ -63,10 +86,7 @@ for (const file of pageFiles) {
           <PageComponent />
         </Layout>,
       );
-
-      const bodyElement = document.body;
-
-      expect(bodyElement).toBeInTheDocument();
+      expect(document.body).toBeInTheDocument();
     });
 
     it('renders a main element', () => {
@@ -75,10 +95,7 @@ for (const file of pageFiles) {
           <PageComponent />
         </Layout>,
       );
-
-      const mainElement = screen.getByRole('main');
-
-      expect(mainElement).toBeInTheDocument();
+      expect(screen.getByRole('main')).toBeInTheDocument();
     });
 
     it('renders image elements with alt attributes if any', () => {
@@ -106,11 +123,8 @@ for (const file of pageFiles) {
         </Layout>,
       );
 
-      const navElement = screen.getByRole('navigation');
-      const footerElement = screen.getByRole('contentinfo');
-
-      expect(navElement).toBeInTheDocument();
-      expect(footerElement).toBeInTheDocument();
+      expect(screen.getByRole('navigation')).toBeInTheDocument();
+      expect(screen.getByRole('contentinfo')).toBeInTheDocument();
     });
 
     it('renders the logo in the header and footer', () => {
@@ -124,4 +138,4 @@ for (const file of pageFiles) {
       expect(logos.length).toBe(2);
     });
   });
-}
+});
