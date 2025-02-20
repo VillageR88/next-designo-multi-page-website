@@ -3,13 +3,12 @@ import SectionDesign from '@/components/SectionDesign';
 import illustrationPassionate from '../public/assets/home/desktop/illustration-passionate.svg';
 import illustrationResourceful from '../public/assets/home/desktop/illustration-resourceful.svg';
 import illustrationFriendly from '../public/assets/home/desktop/illustration-friendly.svg';
-import backgroundPatternLeaf from '../public/assets/shared/desktop/bg-pattern-leaf.svg';
 import Link from 'next/link';
 
 export default function Home(): JSX.Element {
   return (
-    <main className="mb-[-146px] mt-[67px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_320px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
-      <div className="mx-auto flex min-h-[640px] w-full max-w-[69.375em] items-center rounded-[15px] pl-[95px] [background-color:#E7816B] [background-image:url(../public/assets/home/desktop/bg-pattern-hero-home.svg),url(../public/assets/home/desktop/image-hero-phone.png)] [background-position:right,calc(100%+5.5em)_-1.8em] [background-repeat:no-repeat] before:[transform:rotate(80deg)]">
+    <main className="mb-[-146px] mt-[67px] flex flex-col items-center gap-[160px] px-[39px] [background:no-repeat_calc(50%-12.5em)_320px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg),no-repeat_calc(50%+13.5em)_100%_url(../public/assets/shared/desktop/bg-pattern-leaf180.svg)]">
+      <div className="flex min-h-[640px] w-full max-w-[69.375em] items-center rounded-[15px] pl-[95px] [background-color:#E7816B] [background-image:url(../public/assets/home/desktop/bg-pattern-hero-home.svg),url(../public/assets/home/desktop/image-hero-phone.png)] [background-position:right,calc(100%+5.5em)_-1.8em] [background-repeat:no-repeat] before:[transform:rotate(80deg)]">
         <div className="flex max-w-[540px] flex-col gap-[40px]">
           <section className="flex flex-col gap-[39px]">
             <h1 className="text-[48px] font-medium leading-[48px] text-white">
@@ -53,13 +52,7 @@ export default function Home(): JSX.Element {
         ))}
       </div>
       {/* this first div will be for background container */}
-      <div className="relative min-h-[718px] overflow-x-clip">
-        <Image
-          alt=""
-          role="presentation"
-          className="pointer-events-none absolute z-[-1] rotate-180 select-none [left:calc(50%-18em)] [top:124px]"
-          src={backgroundPatternLeaf as string}
-        />
+      <div className="relative min-h-[718px] w-full overflow-x-clip">
         <ul className="mx-auto flex min-h-[412px] w-full max-w-[69.375em] justify-between">
           {[
             {

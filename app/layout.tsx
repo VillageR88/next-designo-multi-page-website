@@ -33,8 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       </head>
 
       <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip bg-white font-jost`}>
-        <nav className="mt-[64px]">
-          <div className="mx-auto flex w-full max-w-[69.375em] items-center justify-between">
+        <nav className="mt-[64px] flex w-full justify-center">
+          <div className="mx-[39px] flex w-full max-w-[69.375em] items-center justify-between">
             <Link aria-label="logo" href="/">
               <Image
                 className="h-[24px] w-[196px]"
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         </nav>
         {children}
         <footer className="mt-auto">
-          <div id="footer-extension" className="relative w-full">
+          <div id="footer-extension" className="relative w-full px-[39px]">
             <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] items-center justify-between rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] [padding:72px_96px_46px_95px]">
               <section className="flex max-w-[455px] flex-col gap-[22px]">
                 <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             </div>
             <div className="absolute bottom-0 left-0 z-[-1] min-h-[72px] w-full bg-[#1D1C1E]" />
           </div>
-          <div className="relative min-h-[321px] bg-[#1D1C1E] py-[72px]">
+          <div className="relative min-h-[321px] bg-[#1D1C1E] px-[39px] py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
               <div className="flex w-full items-center justify-between">
                 <Link aria-label="logo" href="/">

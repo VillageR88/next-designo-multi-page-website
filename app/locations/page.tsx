@@ -4,7 +4,7 @@ import { locationItems } from '../_lib/const';
 
 export default function Locations(): JSX.Element {
   return (
-    <main className="mb-[160px] mt-[67px] flex flex-col gap-[160px]">
+    <main className="mb-[160px] mt-[67px] flex flex-col gap-[160px] px-[39px]">
       <ul className="mx-auto flex w-full max-w-[69.375em] flex-col gap-[32px]">
         {Object.entries(locationItems).map(([locationKey, item]) => (
           <li key={locationKey} className="flex gap-[30px] [&:nth-of-type(2)]:flex-row-reverse">
