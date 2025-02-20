@@ -20,14 +20,17 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
         const description = galleryItems[key];
         return (
           <li key={key} className="flex flex-col rounded-[15px]">
-            <Link className="[transition:transform_600ms] hover:scale-110" href="#">
+            <Link
+              className="[transition:transform_600ms] hover:scale-110 [&:hover>div]:bg-[#E7816B] [&:hover>div_h2]:text-[white] [&:hover>div_p]:text-[white] [&>div]:bg-[#FDF3F0] [&>div_h2]:text-[#E7816B] [&>div_p]:text-[#333136]"
+              href="#"
+            >
               <Image className="rounded-t-[15px]" alt={item} width={350} height={320} src={imagePath} />
-              <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] bg-[#FDF3F0] p-[32px]">
+              <div className="flex min-h-[158px] items-center justify-center rounded-b-[15px] p-[32px] ease-in-out [transition:background-color_600ms]">
                 <section className="flex flex-col items-center justify-center gap-[16px] text-center">
-                  <h2 className="text-[20px] font-medium leading-[26px] tracking-[5px] text-[#E7816B]">
+                  <h2 className="text-[20px] font-medium leading-[26px] tracking-[5px] [transition:color_300ms]">
                     {key.toUpperCase()}
                   </h2>
-                  <p className="leading-[26px] text-[#333136]">{description}</p>
+                  <p className="leading-[26px] [transition:color_300ms]">{description}</p>
                 </section>
               </div>
             </Link>

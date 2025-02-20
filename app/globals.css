@@ -23,3 +23,32 @@ body:has(form) #footer-extension {
 body:has(form) main > ul {
   @apply pb-[160px];
 }
+
+.button1 {
+  @apply rounded-[8px] bg-[#FFFFFF] text-[15px] font-medium tracking-[1px] text-[#333136] [transition:color_300ms,background-color_300ms] hover:bg-[#FFAD9B] hover:text-white;
+}
+
+.nav-item {
+  position: relative;
+}
+.nav-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  height: 1px;
+  background: #333136;
+  width: 0%;
+  bottom: -2px;
+  transition:
+    width 300ms ease-in-out,
+    left 300ms ease-in-out;
+}
+
+.nav-item.bottom::before {
+  background: white;
+}
+
+.nav-item:hover::before {
+  left: 0%;
+  width: 100%;
+}

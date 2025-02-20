@@ -25,7 +25,7 @@ const CountriesSection = (): JSX.Element => (
         </div>
         <h2 className="mt-[48px] font-medium leading-[26px] tracking-[5px] text-[#333136]">{item.title}</h2>
         <Link
-          className="mt-[32px] flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#E7816B] text-[15px] font-medium tracking-[1px] text-white"
+          className="mt-[32px] flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#E7816B] text-[15px] font-medium tracking-[1px] text-white [transition:background-color_300ms] hover:bg-[#FFAD9B]"
           href="#"
         >
           SEE LOCATION

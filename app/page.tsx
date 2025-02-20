@@ -20,10 +20,7 @@ export default function Home(): JSX.Element {
               and engaging brand experiences. Find out more about our services.
             </p>
           </section>
-          <Link
-            className="flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-white text-[15px] font-medium tracking-[1px] text-[#333136]"
-            href="/about/"
-          >
+          <Link className="button1 flex min-h-[56px] w-full max-w-[152px] items-center justify-center" href="/about/">
             LEARN MORE
           </Link>
         </div>

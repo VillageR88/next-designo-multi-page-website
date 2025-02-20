@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             <ul className="flex items-center gap-[42px]">
               {navItems.map((item) => (
                 <Link
-                  className="text-[14px] leading-[14px] tracking-[2px] text-[#333136]"
+                  className="nav-item text-[14px] leading-[14px] tracking-[2px] text-[#333136]"
                   key={item.title}
                   href={item.href}
                 >
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                 </p>
               </section>
               <Link
-                className="flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#FFFFFF] font-medium tracking-[1px] text-[#333136]"
+                className="button1 flex min-h-[56px] w-full max-w-[152px] items-center justify-center"
                 href="/contact/"
               >
                 GET IN TOUCH
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                 <ul className="flex items-center gap-[42px]">
                   {navItems.map((item) => (
                     <Link
-                      className="text-[14px] leading-[14px] tracking-[2px] text-white"
+                      className="nav-item bottom text-[14px] leading-[14px] tracking-[2px] text-white"
                       key={item.title}
                       href={item.href}
                     >
