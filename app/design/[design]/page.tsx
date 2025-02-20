@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import DesignRoute from '@/components/DesignRoute';
+import DesignRoute from '../../../components/DesignRoute';
 
 export async function generateStaticParams(): Promise<
   {
@@ -14,7 +14,7 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
-export default async function Page({ params }: { params: { design: string } }): Promise<JSX.Element> {
+export default async function Design({ params }: { params: { design: string } }): Promise<JSX.Element> {
   // eslint-disable-next-line @typescript-eslint/await-thenable
   const { design } = await params;
   const routePath = path.join(process.cwd(), 'public', 'assets', design, 'desktop');

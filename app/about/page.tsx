@@ -36,7 +36,7 @@ const CommonHero = ({
   </div>
 );
 
-export default function Home(): JSX.Element {
+export default function About(): JSX.Element {
   return (
     <main className="mb-[160px] mt-[67px] flex flex-col gap-[160px] [background:no-repeat_calc(50%-12.5em)_320px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg),no-repeat_calc(50%+39em)_calc(100%-388px)_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
       <TopCommonHero>

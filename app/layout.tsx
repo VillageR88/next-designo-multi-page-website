@@ -5,8 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logoLight from '../public/assets/shared/desktop/logo-light.png';
 import logoDark from '../public/assets/shared/desktop/logo-dark.png';
-import { navItems } from './_lib/const';
-
+import { navItems, locationItems } from './_lib/const';
 const jost = Jost({
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900', '900'],
@@ -18,6 +17,11 @@ export const metadata: Metadata = {
   description: 'Designo multi-page website',
   applicationName: 'Designo multi-page website',
 } as const;
+const FOOTER_EXTENSION_TITLE = 'Let’s talk about your project';
+const FOOTER_EXTENSION_DESCRIPTION =
+  'Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.';
+const CONTACT_CENTRAL_OFFICE_TITLE = 'Contact Us (Central Office)';
+const GET_IN_TOUCH = 'GET IN TOUCH';
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang="en">
@@ -57,20 +61,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <footer className="mt-auto">
           <div id="footer-extension" className="relative w-full">
             <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] items-center justify-between rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] [padding:72px_96px_46px_95px]">
-              <section className="flex max-w-[459px] flex-col gap-[22px]">
+              <section className="flex max-w-[455px] flex-col gap-[22px]">
                 <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
-                  Let’s talk about your project
+                  {FOOTER_EXTENSION_TITLE}
                 </h2>
-                <p className="leading-[26px] text-white">
-                  Ready to take it to the next level? Contact us today and find out how our expertise can help your
-                  business grow.
-                </p>
+                <p className="leading-[26px] text-white">{FOOTER_EXTENSION_DESCRIPTION}</p>
               </section>
               <Link
                 className="button1 flex min-h-[56px] w-full max-w-[152px] items-center justify-center"
                 href="/contact/"
               >
-                GET IN TOUCH
+                {GET_IN_TOUCH}
               </Link>
             </div>
             <div className="absolute bottom-0 left-0 z-[-1] min-h-[72px] w-full bg-[#1D1C1E]" />
@@ -104,19 +105,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
               <div className="flex [&>_section:nth-of-type(2)]:ml-[226px]">
                 {[
                   {
-                    title: 'Designo Central Office',
+                    title: locationItems.canada.address.title,
                     paragraphs: [
                       {
-                        text: '3886 Wellington Street\nToronto, Ontario M9C 3J5',
-                        href: '/location/',
+                        text: locationItems.canada.address.description,
+                        href: `https://www.google.com/maps/search/?api=1&query=${String(locationItems.canada.map.coordinates.lat)},${String(locationItems.canada.map.coordinates.lng)}`,
                       },
                     ],
                   },
                   {
-                    title: 'Contact Us (Central Office)',
+                    title: CONTACT_CENTRAL_OFFICE_TITLE,
                     paragraphs: [
-                      { text: 'P : +1 253-863-8967', href: 'tel:+12538638967' },
-                      { text: 'M : contact@designo.co', href: 'mailto:contact@designo.co' },
+                      { text: locationItems.canada.contact.phone.title, href: locationItems.canada.contact.phone.href },
+                      { text: locationItems.canada.contact.email.title, href: locationItems.canada.contact.email.href },
                     ],
                   },
                 ].map((item) => (

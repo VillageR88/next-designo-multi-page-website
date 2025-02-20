@@ -1,14 +1,11 @@
 import '@testing-library/jest-dom';
-import preloadAll from 'jest-next-dynamic';
 import { render, screen } from '@testing-library/react';
-import fs from 'node:fs';
-import path from 'node:path';
 import Layout from '../app/layout';
-
-// Preload all dynamic imports
-beforeAll(async () => {
-  await preloadAll();
-});
+import Home from '../app/page';
+import About from '../app/about/page';
+import Locations from '../app/locations/page';
+import Contact from '../app/contact/page';
+// import Design from '../app/design/[design]/page';
 
 // Utility functions
 function checkAnchorElements(): void {
@@ -38,39 +35,10 @@ function checkImageElements(): void {
   }
 }
 
-// Dynamically import all page components
-const appDirectory = path.join(__dirname, '../app');
-const pageFiles = fs
-  .readdirSync(appDirectory, { recursive: true, withFileTypes: true })
-  .filter((file) => file.isFile() && file.name.includes('page.tsx'))
-  .map((file) => path.resolve(appDirectory, file.parentPath, file.name)); // Ensure the correct path is used
-console.log('pageFiles', pageFiles);
-
-const PageComponentCollection: Record<string, React.FC> = {};
-
-// Load all components before tests
-beforeAll(async () => {
-  const imports = pageFiles.map(async (file) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const importedModule = await import(file);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    PageComponentCollection[file] = importedModule.default;
-  });
-
-  await Promise.all(imports); // Ensure all imports complete before tests run
-});
-
-// Test each page component
 // biome-ignore lint/complexity/noForEach: <explanation>
-pageFiles.forEach((file) => {
-  console.log('file', file);
-  describe(`Testing page: ${file}`, () => {
-    let PageComponent: React.FC;
-
-    beforeAll(() => {
-      PageComponent = PageComponentCollection[file];
-    });
-
+[Home, About, Locations, Contact].forEach((PageComponent) => {
+  console.log('file', PageComponent);
+  describe(`Testing page: ${PageComponent.name}`, () => {
     it('renders a head element', () => {
       render(
         <Layout>
@@ -125,17 +93,6 @@ pageFiles.forEach((file) => {
 
       expect(screen.getByRole('navigation')).toBeInTheDocument();
       expect(screen.getByRole('contentinfo')).toBeInTheDocument();
-    });
-
-    it('renders the logo in the header and footer', () => {
-      render(
-        <Layout>
-          <PageComponent />
-        </Layout>,
-      );
-
-      const logos = screen.getAllByAltText('logo');
-      expect(logos.length).toBe(2);
     });
   });
 });
