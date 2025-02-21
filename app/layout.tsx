@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                 src={logoDark.src}
               />
             </Link>
-            <ul className="flex items-center gap-[42px]">
+            <ul className="hidden items-center gap-[42px] md:flex">
               {navItems.map((item) => (
                 <Link
                   className="nav-item text-[14px] leading-[14px] tracking-[2px] text-[#333136]"
@@ -59,8 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         </nav>
         {children}
         <footer className="mt-auto">
-          <div id="footer-extension" className="relative w-full px-[39px]">
-            <div className="mx-auto flex min-h-[292px] w-full max-w-[69.375em] flex-col items-center justify-between gap-[32px] rounded-[15px] p-[57px] [background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:flex-row screen1024:[padding:72px_96px_46px_95px]">
+          <div id="footer-extension" className="relative w-full px-[24px] md:px-[39px]">
+            <div className="mx-auto flex min-h-[379px] w-full max-w-[69.375em] flex-col items-center justify-between gap-[32px] rounded-[15px] p-[57px] [background:no-repeat_50%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] md:min-h-[350px] screen1024:min-h-[292px] screen1024:flex-row screen1024:[background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:[padding:72px_96px_46px_95px]">
               <section className="flex max-w-[455px] flex-col items-center gap-[22px] text-center screen1024:items-start screen1024:text-start">
                 <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
                   {FOOTER_EXTENSION_TITLE}
@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           </div>
           <div className="relative min-h-[321px] bg-[#1D1C1E] px-[39px] py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
-              <div className="flex w-full items-center justify-between">
+              <div className="flex w-full flex-col items-center justify-between md:flex-row">
                 <Link aria-label="logo" href="/">
                   <Image
                     className="h-[24px] w-[196px]"
@@ -88,8 +88,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     src={logoLight.src}
                   />
                 </Link>
-                <div className="absolute left-0 top-[139px] h-px w-full [border-bottom:1px_solid_rgba(255,255,255,0.1)]" />
-                <ul className="flex items-center gap-[42px]">
+                <div className="left-0 top-[139px] h-px w-full [border-bottom:1px_solid_rgba(255,255,255,0.1)] md:absolute" />
+                <ul className="flex flex-col items-center gap-[42px] md:flex-row">
                   {navItems.map((item) => (
                     <li key={item.title}>
                       <Link
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                   ))}
                 </ul>
               </div>
-              <div className="flex justify-between screen1024:[&>_section:nth-of-type(2)]:ml-[20%]">
+              <div className="flex flex-col items-center justify-between md:flex-row md:items-start screen1024:[&>_section:nth-of-type(2)]:ml-[20%]">
                 {[
                   {
                     title: locationItems.canada.address.title,
@@ -134,7 +134,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                     ))}
                   </section>
                 ))}
-                <ul className="flex items-center gap-[16px] self-end text-white screen1024:ml-auto [&_a]:fill-[#E7816B] [&_a]:[transition:fill_300ms] hover:[&_a]:fill-[#FFAD9B]">
+                <ul className="flex items-center gap-[16px] text-white md:self-end screen1024:ml-auto [&_a]:fill-[#E7816B] [&_a]:[transition:fill_300ms] hover:[&_a]:fill-[#FFAD9B]">
                   <li>
                     <Link aria-label="facebook" href="#">
                       <svg role="presentation" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
