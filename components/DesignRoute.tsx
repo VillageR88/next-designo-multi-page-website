@@ -5,14 +5,14 @@ import Image from 'next/image';
 import SectionDesign from '@/components/SectionDesign';
 
 const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; relativeDirname: string }): JSX.Element => (
-  <main className="mb-[160px] mt-[64px] flex flex-col gap-[160px] px-[39px] screen1024:[background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
-    <div className="mx-auto flex min-h-[320px] w-full max-w-[69.375em] items-center justify-center overflow-x-clip rounded-[15px] [background:no-repeat_100%_50%_url(../public/assets/web-design/desktop/bg-pattern-intro-web.svg)_#E7816B] [padding:64px_191px] md:min-h-[252px]">
-      <section className="flex max-w-[400px] flex-col items-center justify-center gap-[24px] text-center">
+  <main className="mb-[96px] mt-[34px] flex flex-col gap-[96px] md:mb-[160px] md:mt-[64px] md:gap-[160px] md:px-[39px] screen1024:[background:no-repeat_calc(50%-12.5em)_126px_url(../public/assets/shared/desktop/bg-pattern-leaf.svg)]">
+    <div className="mx-auto flex min-h-[320px] w-full max-w-[69.375em] items-center justify-center overflow-x-clip [background:no-repeat_100%_50%_url(../public/assets/web-design/desktop/bg-pattern-intro-web.svg)_#E7816B] [padding:24px] md:min-h-[252px] md:rounded-[15px] md:[padding:64px_191px]">
+      <section className="flex flex-col items-center justify-center gap-[24px] text-center md:max-w-[400px]">
         <h1 className="text-[48px] font-medium leading-[48px] text-white">{designRouteItems[relativeDirname].title}</h1>
         <p className="leading-[26px] text-white">{designRouteItems[relativeDirname].description}</p>
       </section>
     </div>
-    <ul className="mx-auto flex min-h-[478px] w-full max-w-[69.375em] grid-cols-3 flex-col gap-[32px_30px] screen1024:grid">
+    <ul className="mx-auto flex min-h-[478px] w-full max-w-[69.375em] grid-cols-3 flex-col gap-[32px_30px] px-[24px] md:px-0 screen1024:grid">
       {pageFiles.map((item) => {
         const imagePath = path.join('/assets', relativeDirname, 'desktop', item);
         const key = item.match(/(?<=image-).+(?=.jpg)/)?.[0];
@@ -44,11 +44,14 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
         );
       })}
     </ul>
-    <ul className="mx-auto flex w-full max-w-[69.375em] justify-between">
+    <ul className="mx-auto flex w-full max-w-[69.375em] flex-col justify-between gap-[30px] px-[24px] md:px-0 screen1024:flex-row">
       {Object.keys(designRouteItems)
         .filter((item) => item !== relativeDirname)
         .map((item) => (
-          <li className="min-h-[308px] w-full max-w-[541px] overflow-hidden rounded-[15px] bg-black" key={item}>
+          <li
+            className="w-full overflow-hidden rounded-[15px] bg-black screen1024:min-h-[308px] screen1024:max-w-[541px]"
+            key={item}
+          >
             <Link
               className="relative [&:hover_>_img:nth-of-type(1)]:[scale:120%] [&:hover_div_>_img:nth-of-type(1)]:[animation:_ping2_2s_infinite]"
               href={designRouteItems[item].href}
@@ -57,7 +60,7 @@ const DesignRoute = ({ pageFiles, relativeDirname }: { pageFiles: string[]; rela
                 width={designRouteItems[item].img.width}
                 height={designRouteItems[item].img.height}
                 alt={item}
-                className="rounded-[15px] opacity-50 [transition:scale_600ms]"
+                className="size-full rounded-[15px] object-cover opacity-50 [transition:scale_600ms]"
                 src={designRouteItems[item].img.src}
               />
               <div className="absolute top-0 flex size-full items-center justify-center">
