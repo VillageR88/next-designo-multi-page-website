@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       </head>
 
       <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip bg-white font-jost`}>
-        <nav className="mt-[64px] flex w-full justify-center">
+        <nav className="mt-[35px] flex w-full justify-center md:mt-[64px]">
           <div className="mx-[39px] flex w-full max-w-[69.375em] items-center justify-between">
             <Link aria-label="logo" href="/">
               <Image
@@ -76,9 +76,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             </div>
             <div className="absolute bottom-0 left-0 z-[-1] min-h-[72px] w-full bg-[#1D1C1E]" />
           </div>
-          <div className="relative min-h-[321px] bg-[#1D1C1E] px-[39px] py-[72px]">
+          <div className="relative min-h-[321px] bg-[#1D1C1E] px-[39px] py-[64px] md:py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
-              <div className="flex w-full flex-col items-center justify-between md:flex-row">
+              <div className="flex w-full flex-col items-center justify-between gap-[32px] md:flex-row md:gap-0">
                 <Link aria-label="logo" href="/">
                   <Image
                     className="h-[24px] w-[196px]"
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                   />
                 </Link>
                 <div className="left-0 top-[139px] h-px w-full [border-bottom:1px_solid_rgba(255,255,255,0.1)] md:absolute" />
-                <ul className="flex flex-col items-center gap-[42px] md:flex-row">
+                <ul className="flex flex-col items-center gap-[32px] md:flex-row md:gap-[42px]">
                   {navItems.map((item) => (
                     <li key={item.title}>
                       <Link
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                   ))}
                 </ul>
               </div>
-              <div className="flex flex-col items-center justify-between md:flex-row md:items-start screen1024:[&>_section:nth-of-type(2)]:ml-[20%]">
+              <div className="flex flex-col items-center justify-between gap-[40px] py-[40px] text-center md:flex-row md:items-start md:gap-0 md:py-0 md:text-start screen1024:[&>_section:nth-of-type(2)]:ml-[20%]">
                 {[
                   {
                     title: locationItems.canada.address.title,
