@@ -1,12 +1,18 @@
-const TopCommonHero = ({ children }: { children: React.ReactNode }): JSX.Element => (
-  <div className="mx-auto flex min-h-[480px] w-full max-w-[69.375em] items-center rounded-[15px] pl-[95px] [background-color:#E7816B] [background-image:url(../public/assets/about/desktop/bg-pattern-hero-about-desktop.svg)] [background-position:left_bottom] [background-repeat:no-repeat]">
-    <div className="flex max-w-[540px] flex-col gap-[40px]">
-      <section className="flex flex-col gap-[39px]">
-        <h1 className="text-[48px] font-medium leading-[48px] text-white">About Us</h1>
-        <p className="max-w-[445px] text-[16px] leading-[26px] text-white">
-          Founded in 2010, we are a creative agency that produces lasting results for our clients. We’ve partnered with
-          many startups, corporations, and nonprofits alike to craft designs that make real impact. We’re always looking
-          forward to creating brands, products, and digital experiences that connect with our clients’ audiences.
+const TopCommonHero = ({
+  children,
+  itemsTopHero,
+}: {
+  children: React.ReactNode;
+  itemsTopHero: { title: string; description: string };
+}): JSX.Element => (
+  <div className="mx-auto flex min-h-[480px] w-full max-w-[69.375em] flex-col items-center overflow-x-clip text-center [background-color:#E7816B] [background-image:url(../public/assets/about/desktop/bg-pattern-hero-about-desktop.svg)] [background-position:left_bottom] [background-repeat:no-repeat] md:rounded-[15px] screen1024:flex-row screen1024:text-start [&:has(img)]:flex-col-reverse screen1024:[&:has(img)]:flex-row">
+    <div className="flex w-full justify-center gap-[40px] px-[24px] py-[72px] md:p-[39px] screen1024:max-w-[635px]">
+      <section className="flex flex-col gap-[39px] screen1024:max-w-[458px]">
+        <h1 className="text-[32px] font-medium leading-[36px] text-white md:text-[48px] md:leading-[48px]">
+          {itemsTopHero.title}
+        </h1>
+        <p className="text-[15px] leading-[26px] text-white md:text-[16px] screen1024:max-w-[445px]">
+          {itemsTopHero.description}
         </p>
       </section>
     </div>

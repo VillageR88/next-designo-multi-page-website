@@ -21,7 +21,7 @@ body:has(form) #footer-extension {
 }
 
 body:has(form) main > ul {
-  @apply pb-[160px];
+  @apply pb-[120px] screen1024:pb-[160px];
 }
 
 .button1 {

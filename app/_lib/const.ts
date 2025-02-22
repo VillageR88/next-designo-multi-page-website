@@ -3,8 +3,11 @@ import appDesign from '../../public/assets/home/desktop/image-app-design.jpg';
 import webDesign from '../../public/assets/home/desktop/image-web-design-small.jpg';
 import graphicDesign from '../../public/assets/home/desktop/image-graphic-design.jpg';
 import mapCanada from '../../public/assets/locations/desktop/image-map-canada.png';
+import mapCanadaTablet from '../../public/assets/locations/tablet/image-map-canada.png';
 import mapAustralia from '../../public/assets/locations/desktop/image-map-australia.png';
+import mapAustraliaTablet from '../../public/assets/locations/tablet/image-map-australia.png';
 import mapUK from '../../public/assets/locations/desktop/image-map-united-kingdom.png';
+import mapUKTablet from '../../public/assets/locations/tablet/image-map-uk.png';
 
 const navItems = [
   { title: 'OUR COMPANY', href: '/about/' },
@@ -57,7 +60,7 @@ const locationItems = {
       phone: { title: 'P : +1 253-863-8967', href: 'tel:+12538638967' },
       email: { title: 'M : contact@designo.co', href: 'mailto:contact@designo.co' },
     },
-    map: { imageData: mapCanada, coordinates: { lat: 43.6532, lng: -79.3832 } },
+    map: { imageData: mapCanada, imageDataTablet: mapCanadaTablet, coordinates: { lat: 43.6532, lng: -79.3832 } },
   },
   australia: {
     address: { title: 'Designo AU Office', description: '19 Balonne Street\nNew South Wales 2443' },
@@ -65,7 +68,11 @@ const locationItems = {
       phone: { title: 'P : (02) 6720 9092', href: 'tel:+0267209092' },
       email: { title: 'M : contact@designo.au', href: 'mailto:contact@designo.au' },
     },
-    map: { imageData: mapAustralia, coordinates: { lat: -31.2532, lng: 146.9211 } },
+    map: {
+      imageData: mapAustralia,
+      imageDataTablet: mapAustraliaTablet,
+      coordinates: { lat: -31.2532, lng: 146.9211 },
+    },
   },
   'united-kingdom': {
     address: { title: 'Designo UK Office', description: '13  Colorado Way\nRhyd-y-fro SA8 9GA' },
@@ -73,7 +80,7 @@ const locationItems = {
       phone: { title: 'P : 078 3115 1400', href: 'tel:+07831151400' },
       email: { title: 'M : contact@designo.uk', href: 'mailto:contact@designo.uk' },
     },
-    map: { imageData: mapUK, coordinates: { lat: 51.509865, lng: -0.118092 } },
+    map: { imageData: mapUK, imageDataTablet: mapUKTablet, coordinates: { lat: 51.509865, lng: -0.118092 } },
   },
 };
 

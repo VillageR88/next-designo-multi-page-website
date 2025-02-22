@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { locationItems } from '@/app/_lib/const';
 
 const CountriesSection = (): JSX.Element => (
-  <ul className="mx-auto flex w-full max-w-[69.375em] justify-between">
+  <ul className="mx-auto flex w-full max-w-[69.375em] flex-col items-center justify-between gap-[80px] screen1024:flex-row screen1024:gap-0">
     {[
       { title: 'CANADA', img: canada as string, map: locationItems.canada.map.coordinates },
       {

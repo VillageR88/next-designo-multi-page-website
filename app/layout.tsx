@@ -60,9 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         {children}
         <footer className="mt-auto">
           <div id="footer-extension" className="relative w-full px-[24px] md:px-[39px]">
-            <div className="mx-auto flex min-h-[379px] w-full max-w-[69.375em] flex-col items-center justify-between gap-[32px] rounded-[15px] p-[57px] [background:no-repeat_50%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] md:min-h-[350px] screen1024:min-h-[292px] screen1024:flex-row screen1024:[background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:[padding:72px_96px_46px_95px]">
+            <div className="mx-auto flex min-h-[379px] w-full max-w-[69.375em] flex-col items-center justify-center gap-[32px] rounded-[15px] p-[24px] [background:no-repeat_50%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] md:min-h-[350px] md:justify-between md:p-[57px] screen1024:min-h-[292px] screen1024:flex-row screen1024:[background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:[padding:72px_96px_46px_95px]">
               <section className="flex max-w-[455px] flex-col items-center gap-[22px] text-center screen1024:items-start screen1024:text-start">
-                <h2 className="max-w-[268px] text-[40px] font-medium leading-[40px] text-white">
+                <h2 className="max-w-[268px] text-[32px] font-medium leading-[36px] text-white md:text-[40px] md:leading-[40px]">
                   {FOOTER_EXTENSION_TITLE}
                 </h2>
                 <p className="leading-[26px] text-white">{FOOTER_EXTENSION_DESCRIPTION}</p>
