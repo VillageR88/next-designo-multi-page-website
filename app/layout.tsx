@@ -4,8 +4,10 @@ import { Jost } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import logoLight from '../public/assets/shared/desktop/logo-light.png';
-import logoDark from '../public/assets/shared/desktop/logo-dark.png';
 import { navItems, locationItems } from './_lib/const';
+import Nav from './components/Nav';
+import { Aside } from './components/Aside';
+
 const jost = Jost({
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900', '900'],
@@ -33,31 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       </head>
 
       <body className={`${jost.variable} flex min-h-dvh flex-col overflow-x-clip bg-white font-jost`}>
-        <nav className="mt-[35px] flex w-full justify-center md:mt-[64px]">
-          <div className="mx-[39px] flex w-full max-w-[69.375em] items-center justify-between">
-            <Link aria-label="logo" href="/">
-              <Image
-                className="h-[24px] w-[196px]"
-                alt="Designo logo"
-                width={logoDark.width}
-                height={logoDark.height}
-                src={logoDark.src}
-              />
-            </Link>
-            <ul className="hidden items-center gap-[42px] md:flex">
-              {navItems.map((item) => (
-                <Link
-                  className="nav-item text-[14px] leading-[14px] tracking-[2px] text-[#333136]"
-                  key={item.title}
-                  href={item.href}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </ul>
-          </div>
-        </nav>
-        {children}
+        <Nav />
+        <Aside />
+        <main>{children}</main>
         <footer className="mt-auto">
           <div id="footer-extension" className="relative w-full px-[24px] md:px-[39px]">
             <div className="mx-auto flex min-h-[379px] w-full max-w-[69.375em] flex-col items-center justify-center gap-[32px] rounded-[15px] p-[24px] [background:no-repeat_50%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] md:min-h-[350px] md:justify-between md:p-[57px] screen1024:min-h-[292px] screen1024:flex-row screen1024:[background:no-repeat_100%_50%_url(../public/assets/shared/desktop/bg-pattern-call-to-action.svg)_#E7816B] screen1024:[padding:72px_96px_46px_95px]">

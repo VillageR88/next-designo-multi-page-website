@@ -16,8 +16,25 @@ html {
   scroll-behavior: smooth;
 }
 
-body:has(form) #footer-extension {
-  display: none;
+body aside {
+  transition: opacity 300ms;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  body.nav-open aside {
+    opacity: 100;
+    user-select: auto;
+    pointer-events: auto;
+  }
+  body.nav-open {
+    overflow-y: clip;
+  }
+
+  body:has(form) #footer-extension {
+    display: none;
+  }
 }
 
 body:has(form) main > ul {
