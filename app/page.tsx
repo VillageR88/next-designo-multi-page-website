@@ -63,7 +63,7 @@ export default function Home(): JSX.Element {
           <Link
             href={'/design/'.concat(item.title.toLowerCase().split(' ').join('-'))}
             key={item.title}
-            className={`relative flex items-center justify-center rounded-[15px] ease-in-out [background-color:rgba(0,0,0,1)] [transition:scale_600ms] ${item.area} z-[1] min-h-[250px] overflow-hidden md:min-h-[200px] screen1024:min-h-fit [&:hover>img:nth-of-type(1)]:[scale:120%] [&:hover>section_img:nth-of-type(1)]:[animation:_ping2_3s_infinite]`}
+            className={`relative flex items-center justify-center rounded-[15px] ease-in-out [background-color:rgba(0,0,0,1)] [transition:scale_600ms] ${item.area} z-[1] min-h-[250px] overflow-hidden md:min-h-[200px] screen1024:min-h-fit [&:hover>picture>img:nth-of-type(1)]:[scale:120%] [&:hover>section_img:nth-of-type(1)]:[animation:_ping2_3s_infinite]`}
           >
             <picture>
               <source media="(max-width: 768px)" srcSet={item.backgroundMobile.src} />

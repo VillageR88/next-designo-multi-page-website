@@ -4,7 +4,7 @@ import australia from '../public/assets/shared/desktop/illustration-australia.sv
 import unitedKingdom from '../public/assets/shared/desktop/illustration-united-kingdom.svg';
 import Link from 'next/link';
 import { locationItems } from '@/app/_lib/const';
-
+const SEE_LOCATION = 'SEE LOCATION';
 const CountriesSection = (): JSX.Element => (
   <ul className="mx-auto flex w-full max-w-[69.375em] flex-col items-center justify-between gap-[80px] screen1024:flex-row screen1024:gap-0">
     {[
@@ -28,12 +28,13 @@ const CountriesSection = (): JSX.Element => (
         </div>
         <h2 className="mt-[48px] font-medium leading-[26px] tracking-[5px] text-[#333136]">{item.title}</h2>
         <Link
+          aria-label={SEE_LOCATION}
           className="mt-[32px] flex min-h-[56px] w-full max-w-[152px] items-center justify-center rounded-[8px] bg-[#E7816B] text-[15px] font-medium tracking-[1px] text-white [transition:background-color_300ms] hover:bg-[#FFAD9B]"
           href={`https://www.google.com/maps/search/?api=1&query=${String(item.map.lat)},${String(item.map.lng)}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          SEE LOCATION
+          {SEE_LOCATION}
         </Link>
       </li>
     ))}

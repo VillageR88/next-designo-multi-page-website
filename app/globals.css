@@ -28,6 +28,19 @@ body aside {
     user-select: auto;
     pointer-events: auto;
   }
+
+  body button img {
+    @apply [transition:opacity_300ms];
+  }
+  body button img:nth-of-type(2) {
+    @apply opacity-0;
+  }
+  body.nav-open button img:nth-of-type(2) {
+    @apply opacity-100;
+  }
+  body.nav-open button img:nth-of-type(1) {
+    @apply opacity-0;
+  }
   body.nav-open {
     overflow-y: clip;
   }
@@ -102,4 +115,70 @@ form textarea {
   resize: none;
   padding-top: 14px;
   min-height: 102px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+}
+
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+}
+
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+}
+
+input::-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 300px #e7816b inset;
+  -webkit-text-fill-color: white;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+input::before {
+  background-color: #e7816b;
+  content: '';
+  display: block;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+}
+
+input::after {
+  background-color: #e7816b;
+  content: '';
+  display: block;
+  height: 100%;
+  opacity: 0.6;
+  width: 100%;
+}
+
+input:not([type='file']) {
+  backdrop-filter: blur(2.5px);
 }

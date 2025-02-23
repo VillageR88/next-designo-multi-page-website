@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           <div className="relative min-h-[321px] bg-[#1D1C1E] px-[39px] py-[64px] md:py-[72px]">
             <div className="mx-auto flex min-h-[177px] w-full max-w-[69.375em] flex-col justify-between">
               <div className="flex w-full flex-col items-center justify-between gap-[32px] md:flex-row md:gap-0">
-                <Link aria-label="logo" href="/">
+                <Link aria-label="Logo od Designo" href="/">
                   <Image
                     className="h-[24px] w-[196px]"
                     alt="Designo logo"

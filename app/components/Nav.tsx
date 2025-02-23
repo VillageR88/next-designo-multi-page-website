@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import mobileMenuOpen from '../../public/assets/shared/mobile/icon-hamburger.svg';
+import mobileMenuClose from '../../public/assets/shared/mobile/icon-close.svg';
 import logoDark from '../../public/assets/shared/desktop/logo-dark.png';
 import { navItems } from '../_lib/const';
 
@@ -19,7 +20,7 @@ export default function Nav(): JSX.Element {
             href="/"
           >
             <Image
-              className="h-[24px] w-[196px]"
+              className="max-h-[24px] w-fit"
               alt="Designo logo"
               width={logoDark.width}
               height={logoDark.height}
@@ -36,7 +37,7 @@ export default function Nav(): JSX.Element {
             ))}
           </ul>
           <button
-            className="md:hidden"
+            className="relative flex size-[20px] md:hidden"
             aria-label="Mobile menu"
             type="button"
             onClick={() => {
@@ -44,7 +45,18 @@ export default function Nav(): JSX.Element {
               scrollTo({ top: 0 });
             }}
           >
-            <Image alt="" role="presentation" src={mobileMenuOpen as string} />
+            <Image
+              className="absolute left-0 top-0 flex size-fit"
+              alt=""
+              role="presentation"
+              src={mobileMenuOpen as string}
+            />
+            <Image
+              className="absolute left-0 top-0 flex size-fit"
+              alt=""
+              role="presentation"
+              src={mobileMenuClose as string}
+            />
           </button>
         </div>
       </nav>
